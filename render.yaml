@@ -1,0 +1,22 @@
+# One-click deploy on Render: New > Blueprint > pick this repo. Fill the env values when asked.
+services:
+  - type: web
+    name: snap-to-bill
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: FIREBASE_API_KEY
+        sync: false
+      - key: FIREBASE_AUTH_DOMAIN
+        sync: false
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_APP_ID
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: DAILY_LIMIT
+        value: "50"
